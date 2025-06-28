@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aasif - Developer Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: rgb(20, 20, 56);
+            --secondary: #463361;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: wheat;
+            font-size: 1.05rem;
+        }
+
+        main {
+            padding-top: 80px;
+        }
+
+        main hr {
+            border: 0;
+            background: rgb(171, 102, 236);
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+
+        .left {
+            font-size: 2rem;
+        }
+
+        .firstsection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 150px;
+            margin-top: 150px;
+        }
+
+        .firstsection>div {
+            width: 30%;
+        }
+
+        .leftsection {
+            font-size: 3rem;
+        }
+
+        .leftsection .buttons {
+            padding: 50px 0;
+        }
+
+        .leftsection .btn {
+            padding: 12px;
+            background: #342050;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .leftsection .btn:hover {
+            background: rgb(232, 230, 235);
+            color: #463361;
+            transform: scale(1.05);
+        }
+
+        .rightsection img {
+            width: 70%;
+            margin: 40px 0;
+        }
+
+        .purple {
+            color: rgb(147, 75, 214);
+        }
+
+        .text-grey {
+            color: grey;
+        }
+
+        #element {
+            color: rgb(147, 75, 214);
+        }
+
+        .secondsection {
+            max-width: 80vw;
+            margin: auto;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(147, 75, 214, 0.3), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(147, 75, 214, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(147, 75, 214, 0.4);
+            margin-bottom: 150px;
+            margin-top: 200px;
+        }
+
+        .secondsection h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid rgb(171, 102, 236);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -12px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(147, 75, 214);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(147, 75, 214, 0.5);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(171, 102, 236, 0.5);
+        }
+
+        .timeline-content h3 {
+            color: rgb(171, 102, 236);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #0d0d2b;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .footer-content h2 .gradient-text {
+            background: linear-gradient(90deg, #9b5de5, #5f6cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            text-align: left;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(147, 75, 214, 0.6);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-item .icon {
+            background-color: rgba(147, 75, 214, 0.2);
+            padding: 12px;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item .icon i {
+            font-size: 1.5rem;
+            color: rgb(147, 75, 214);
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            color: rgb(171, 102, 236);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        #about {
+            max-width: 90%;
+            margin: 80px auto;
+            background: linear-gradient(135deg, rgba(147, 75, 214, 0.3), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(147, 75, 214, 0.6);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(147, 75, 214, 0.4);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 170px;
+            margin-top: 200px;
+        }
+
+        #about img {
+            width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        #about-content {
+            flex: 1;
+        }
+
+        #about h2 {
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, #9b5de5, #5f6cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #9b5de5;
+        }
+
+        .info-box span {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .firstsection {
+                flex-direction: column;
+                margin: 50px 0;
+            }
+
+            .firstsection>div {
+                width: 100%;
+                text-align: center;
+            }
+
+            .leftsection {
+                font-size: 2rem;
+            }
+
+            .rightsection img {
+                width: 100%;
+                height: auto;
+            }
+
+            .footer-content h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-item {
+                width: 90%;
+            }
+
+            #about {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            #about img {
+                margin: 0 auto;
+            }
+
+            .info-boxes {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body id="home">
+    <nav>
+        <div class="left">Aasif's Portfolio</div>
+        <div id="navbar" class="right">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about1">About</a></li>
+                <li><a href="#education1">Education</a></li>
+                <li><a href="https://counselo-frontend.onrender.com/">Projects</a></li>
+                <li><a href="#footer">Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="firstsection">
+            <div class="leftsection">
+                Hii my name is <span class="purple">Aasif</span>
+                <div>and I am a student</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <a class="btn" href="Md.pdf">Download Resume</a>
+                    <a href="https://github.com/aasif41" class="btn">Visit Github</a>
+                    <a href="https://counselo-frontend.onrender.com/" class="btn">My Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="max-w-xs md:max-w-md floating">
+                    <img src="image.png" alt="Profile" style="border-radius: 50%; border: 3px solid white;" />
+                </div>
+            </div>
+        </section>
+        <br id="about1">
+        <br>
+        <br>
+        <hr />
+        <section id="about">
+            <img src="image.png" alt="Aasif" style="border-radius: 50%; border: 3px solid white;" />
+            <div id="about-content">
+                <h2>About Me</h2>
+                <p>I'm a 3rd year B.Sc (Hons) Computer Science student at Tribhuvan College, Neemrana, passionate about
+                    technology and its potential to solve real-world problems. My academic journey has equipped me with
+                    strong analytical skills and a problem-solving mindset.</p>
+                <p>I believe in continuous learning and updating my knowledge in the ever-evolving field of computer
+                    science. My goal is to leverage technology to create meaningful solutions that can positively impact
+                    society.</p>
+                <div class="info-boxes">
+                    <div class="info-box"><span>College:</span> Tribhuvan College, Neemrana</div>
+                    <div class="info-box"><span>Course:</span> B.Sc (Hons) CS</div>
+                </div>
+            </div>
+        </section>
+        <hr id="education1" />
+        <section id="education" class="secondsection">
+            <h1>Education and Activity</h1>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Class 10<sup>th</sup></h3>
+                            <p>Completed from <strong>Shafi Muslim High School, Darbhanga</strong>
+                                (2019–2020).<br>Scored <strong>69.8%</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Class 12<sup>th</sup></h3>
+                            <p>Completed from <strong>Millat College, Darbhanga</strong> (2020–2022).<br>Scored
+                                <strong>52%</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>B.Sc (Hons.) Computer Science</h3>
+                            <p>Currently pursuing at <strong>Tribhuvan College, Neemrana</strong>(2023–present).<br>In
+                                <strong>5<sup>th</sup> Semester</strong>, recently completed 2<sup>nd</sup> year.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <h2>Get In <span class="gradient-text">Touch</span></h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>mdaasif18092003@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Phone no</h4>
+                        <p>+91-9835759290</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <p><a href="https://www.linkedin.com/in/md-aasif-7bb514305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                target="_blank" style="color:white; text-decoration: none;">Aasif's Profile</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aasif's Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['of B.Sc. Hons computer science.', 'and currently I am learning web designing.'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>
